@@ -9,4 +9,8 @@ public class InputHandler {
 	public IAtomContainer readSmiles(String smiles) {
 		return null;
 	}
+
+    public IAtomContainer[] loadFile(String filename) {
+        return null;
+    }
 }
