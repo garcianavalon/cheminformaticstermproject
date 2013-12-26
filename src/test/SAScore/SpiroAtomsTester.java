@@ -2,23 +2,24 @@ package test.SAScore;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.List;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
+import org.openscience.cdk.ringsearch.RingSearch;
 import org.openscience.cdk.smiles.SmilesParser;
 
 import code.SAScoreCalc;
 
-public class MacroCyclePenaltyTester {
-
+public class SpiroAtomsTester {
 	private SAScoreCalc calculator;
 	@Before
 	public void setUp() throws Exception {
 		SmilesParser   sp  = new SmilesParser(DefaultChemObjectBuilder.getInstance());
-		IAtomContainer molecule  = sp.parseSmiles("C1CCCCCCCC1");
+		IAtomContainer molecule  = sp.parseSmiles("C1=CC21C=C2");
 		calculator = new SAScoreCalc(molecule);
 	}
 
@@ -28,8 +29,8 @@ public class MacroCyclePenaltyTester {
 	}
 
 	@Test
-	public void checkResult() throws CDKException {
-		double res = calculator.calcMacroCyclePenalty();
-		assertEquals(0.30103,res,0.0001);
+	public void checkResult() {
+		int res = calculator.getNumberOfSpiroAtoms();
+		assertEquals(1,res,0);
 	}
 }
