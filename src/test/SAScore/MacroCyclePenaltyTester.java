@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.CDKException;
-import org.openscience.cdk.interfaces.IMolecule;
+import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.smiles.SmilesParser;
 
 import code.SAScoreCalc;
@@ -18,7 +18,7 @@ public class MacroCyclePenaltyTester {
 	@Before
 	public void setUp() throws Exception {
 		SmilesParser   sp  = new SmilesParser(DefaultChemObjectBuilder.getInstance());
-		IMolecule molecule  = sp.parseSmiles("c1cccccccccc1");
+		IAtomContainer molecule  = sp.parseSmiles("c1cccccccccc1");
 		calculator = new SAScoreCalc(molecule);
 	}
 
@@ -32,5 +32,4 @@ public class MacroCyclePenaltyTester {
 		double res = calculator.calcMacroCyclePenalty();
 		assertEquals(0.30103,res,0.0001);
 	}
-
 }

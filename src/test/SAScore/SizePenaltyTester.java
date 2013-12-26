@@ -1,13 +1,13 @@
 package test.SAScore;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openscience.cdk.Atom;
-import org.openscience.cdk.Molecule;
-import org.openscience.cdk.interfaces.IMolecule;
+import org.openscience.cdk.Polymer;
+import org.openscience.cdk.interfaces.IAtomContainer;
 
 import code.SAScoreCalc;
 
@@ -16,7 +16,7 @@ public class SizePenaltyTester {
 	private SAScoreCalc calculator;
 	@Before
 	public void setUp() throws Exception {
-		IMolecule molecule= new Molecule();
+		IAtomContainer molecule= new Polymer();
 		molecule.addAtom(new Atom());
 		molecule.addAtom(new Atom());
 		calculator = new SAScoreCalc(molecule);
