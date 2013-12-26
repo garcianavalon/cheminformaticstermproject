@@ -1,4 +1,5 @@
 package code;
+
 import org.openscience.cdk.Ring;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
@@ -18,11 +19,27 @@ public class SAScoreCalc {
 	}
 	
 	public double calcRingComplexityScore() {
+		double nSpiroAtoms = getNumberOfSpiroAtoms();
+		double nRingBridgeAtoms = getNumberOfRingBridgeAtoms();
+		return Math.log10(nRingBridgeAtoms + 1) + Math.log10(nSpiroAtoms + 1);
+	}
+	public double getNumberOfSpiroAtoms() {
+		return 0;
+	}
+	public double getNumberOfRingBridgeAtoms() {
 		return 0;
 	}
 	
 	public double calcStereoComplexityScore() {
-		return 0;
+		int nStereoCenters = 0;
+		Stereocenters  centers   = Stereocenters.of(molecule);
+		 for (int i = 0; i < molecule.getAtomCount(); i++) {
+		     if (centers.isStereocenter(i)) {
+		    	 nStereoCenters += 1;	
+		     }
+		 }
+		
+		return Math.log10(nStereoCenters +1);
 	}
 	
 	public double calcMacroCyclePenalty() throws CDKException {
