@@ -3,14 +3,16 @@ package code;
 import org.openscience.cdk.Ring;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
-import org.openscience.cdk.interfaces.IMolecule;
 import org.openscience.cdk.ringsearch.AllRingsFinder;
+import org.openscience.cdk.stereo.Stereocenters;
+
+
 
 public class SAScoreCalc {
 	
-	private IMolecule molecule;
+	private IAtomContainer molecule;
 	
-	public SAScoreCalc(IMolecule molecule) {
+	public SAScoreCalc(IAtomContainer molecule) {
 		this.molecule = molecule;
 	}
 

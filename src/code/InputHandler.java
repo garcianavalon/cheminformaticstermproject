@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.io.iterator.IIteratingChemObjectReader;
-import org.openscience.cdk.io.iterator.IteratingMDLReader;
+import org.openscience.cdk.io.iterator.IteratingSDFReader;
 import org.openscience.cdk.io.iterator.IteratingSMILESReader;
 
 
@@ -32,7 +32,7 @@ public class InputHandler {
         IIteratingChemObjectReader<IAtomContainer> iterativeReader=null;
         
         if (extension.equalsIgnoreCase("sdf")){
-        	iterativeReader = new IteratingMDLReader(new FileInputStream(file), DefaultChemObjectBuilder.getInstance());
+        	iterativeReader = new IteratingSDFReader(new FileInputStream(file), DefaultChemObjectBuilder.getInstance());
         } else if (extension.equalsIgnoreCase("smiles") || 
         			extension.equalsIgnoreCase("smi")){ 
         	iterativeReader = new IteratingSMILESReader(new FileInputStream(file), DefaultChemObjectBuilder.getInstance());
