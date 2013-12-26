@@ -1,3 +1,4 @@
+package code;
 import org.openscience.cdk.interfaces.IAtomContainer;
 
 public class ECFFragmenter {
