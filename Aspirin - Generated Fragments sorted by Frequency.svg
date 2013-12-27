@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1877  558">
+<g transform="translate( 249, 190)">
+<defs>
+  <path id="Atom-O" transform="scale(0,030,-0,030)" d="M40 359c0 222 138 382 350 382c211 0 352 -155 352 -387c0 -209 -132 -377 -351 -377c-214 0 -351 160 -351 382zM391 613c-121 0 -201 -101 -201 -254s80 -254 201 -254c120 0 201 101 201 250c0 158 -78 258 -201 258z" />  <path id="Atom-H" transform="scale(0,030,-0,030)" d="M519 331h-289v-331h-150v729h150v-273h288v273h151v-729h-150v331z" />
+  <path id="Atom-Y" transform="scale(0,030,-0,030)" d="M402 270v-270h-150v270l-242 459h167l149 -322l139 322h168z" />
+  <path id="Atom-C" transform="scale(0,030,-0,030)" d="M535 482c-8 37 -31 131 -156 131c-118 0 -189 -96 -189 -257c0 -159 68 -253 184 -253c93 0 152 53 161 146h146c-9 -167 -130 -272 -311 -272c-203 0 -330 147 -330 381c0 236 128 383 334 383c170 0 291 -95 304 -259h-143z" />
+  <path id="Atom-3" transform="scale(0,0210,-0,0210)" d="M38 498c0 192 139 226 230 226c137 0 225 -75 225 -193c0 -65 -27 -110 -93 -151c80 -39 116 -93 116 -176c0 -138 -97 -227 -248 -227c-145 0 -238 89 -239 231h136c4 -73 40 -111 106 -111c61 0 105 45 105 107c0 52 -30 93 -77 106c-24 6 -33 7 -82 7v94h12c83 0 124 36 124 107c0 59 -32 93 -88 93c-79 0 -95 -49 -97 -125h-130v12z" />
+</defs>
+<use xlink:href="#Atom-O" x="-11,13" y="11,46"/><use xlink:href="#Atom-H" x="11,13" y="11,46"/>
+<use xlink:href="#Atom-Y" x="-48,47" y="-56,57"/>
+<use xlink:href="#Atom-Y" x="29,48" y="-56,56"/>
+<use xlink:href="#Atom-O" x="189,75" y="11,46"/>
+<use xlink:href="#Atom-O" x="228,73" y="-56,04"/><use xlink:href="#Atom-H" x="250,99" y="-56,04"/>
+<use xlink:href="#Atom-Y" x="74,48" y="-56,57"/>
+<use xlink:href="#Atom-Y" x="113,45" y="-124,07"/>
+<use xlink:href="#Atom-Y" x="191,39" y="-124,06"/>
+<use xlink:href="#Atom-Y" x="353,30" y="10,93"/>
+<use xlink:href="#Atom-Y" x="392,27" y="-56,56"/>
+<use xlink:href="#Atom-Y" x="275,36" y="-124,07"/>
+<use xlink:href="#Atom-Y" x="353,30" y="-124,06"/>
+<use xlink:href="#Atom-Y" x="275,36" y="10,93"/>
+<use xlink:href="#Atom-O" x="591,52" y="-33,54"/>
+<use xlink:href="#Atom-O" x="552,55" y="-101,04"/><use xlink:href="#Atom-H" x="574,81" y="-101,04"/>
+<use xlink:href="#Atom-Y" x="437,27" y="10,94"/>
+<use xlink:href="#Atom-O" x="474,61" y="-101,04"/>
+<use xlink:href="#Atom-Y" x="437,27" y="-124,07"/>
+<use xlink:href="#Atom-O" x="636,52" y="-33,54"/>
+<use xlink:href="#Atom-Y" x="716,10" y="10,93"/>
+<use xlink:href="#Atom-Y" x="638,16" y="-124,07"/>
+<use xlink:href="#Atom-Y" x="716,10" y="-124,06"/>
+<use xlink:href="#Atom-Y" x="638,16" y="10,93"/>
+<use xlink:href="#Atom-O" x="876,38" y="-56,04"/>
+<use xlink:href="#Atom-Y" x="761,10" y="10,94"/>
+<use xlink:href="#Atom-Y" x="761,10" y="-124,07"/>
+<use xlink:href="#Atom-Y" x="839,04" y="-124,07"/>
+<use xlink:href="#Atom-Y" x="955,96" y="-56,56"/>
+<use xlink:href="#Atom-Y" x="916,99" y="10,94"/>
+<use xlink:href="#Atom-O" x="1116,24" y="-56,04"/>
+<use xlink:href="#Atom-Y" x="1000,96" y="-34,07"/>
+<use xlink:href="#Atom-Y" x="1039,93" y="-101,57"/>
+<use xlink:href="#Atom-Y" x="1156,84" y="-34,06"/>
+<use xlink:href="#Atom-Y" x="1279,78" y="10,93"/>
+<use xlink:href="#Atom-Y" x="1201,84" y="-124,07"/>
+<use xlink:href="#Atom-Y" x="1402,73" y="10,93"/>
+<use xlink:href="#Atom-Y" x="1324,78" y="-124,07"/>
+<use xlink:href="#Atom-Y" x="1564,64" y="100,94"/>
+<use xlink:href="#Atom-Y" x="1486,70" y="100,93"/>
+<use xlink:href="#Atom-Y" x="1447,73" y="33,44"/>
+<use xlink:href="#Atom-Y" x="1486,70" y="-34,07"/>
+<use xlink:href="#Atom-O" x="-172,10" y="272,06"/>
+<use xlink:href="#Atom-Y" x="-170,46" y="316,54"/>
+<use xlink:href="#Atom-Y" x="-209,43" y="249,04"/>
+<use xlink:href="#Atom-O" x="-88,13" y="249,56"/>
+<use xlink:href="#Atom-Y" x="-47,52" y="316,54"/>
+<use xlink:href="#Atom-Y" x="-8,55" y="249,04"/>
+<use xlink:href="#Atom-Y" x="-125,46" y="181,54"/>
+<use xlink:href="#Atom-Y" x="-47,52" y="181,54"/>
+<use xlink:href="#Atom-O" x="151,73" y="317,06"/>
+<use xlink:href="#Atom-O" x="112,76" y="249,56"/>
+<use xlink:href="#Atom-Y" x="153,36" y="136,54"/>
+<use xlink:href="#Atom-Y" x="75,42" y="136,54"/>
+<use xlink:href="#Atom-Y" x="36,45" y="204,04"/>
+<use xlink:href="#Atom-C" x="191,61" y="249,56"/><use xlink:href="#Atom-H" x="212,04" y="249,56"/><use xlink:href="#Atom-3" x="234,51" y="257,25"/>
+<use xlink:href="#Atom-O" x="313,64" y="317,06"/>
+<use xlink:href="#Atom-O" x="274,67" y="249,56"/>
+<use xlink:href="#Atom-Y" x="237,33" y="181,54"/>
+<use xlink:href="#Atom-Y" x="315,28" y="181,54"/>
+<use xlink:href="#Atom-C" x="353,53" y="249,56"/><use xlink:href="#Atom-H" x="373,96" y="249,56"/><use xlink:href="#Atom-3" x="396,43" y="257,25"/>
+<use xlink:href="#Atom-C" x="398,53" y="317,06"/><use xlink:href="#Atom-H" x="418,96" y="317,06"/><use xlink:href="#Atom-3" x="441,43" y="324,75"/>
+<use xlink:href="#Atom-Y" x="399,25" y="271,54"/>
+<use xlink:href="#Atom-C" x="482,50" y="317,06"/><use xlink:href="#Atom-H" x="502,93" y="317,06"/><use xlink:href="#Atom-3" x="525,40" y="324,75"/>
+<use xlink:href="#Atom-Y" x="444,25" y="249,04"/>
+<use xlink:href="#Atom-Y" x="522,19" y="249,04"/>
+<use xlink:href="#Atom-O" x="604,53" y="317,06"/>
+<use xlink:href="#Atom-Y" x="567,19" y="249,04"/>
+<use xlink:href="#Atom-Y" x="645,13" y="249,04"/>
+<use xlink:href="#Atom-Y" x="768,07" y="316,54"/>
+<use xlink:href="#Atom-Y" x="690,13" y="181,54"/>
+<use xlink:href="#Atom-Y" x="768,07" y="181,54"/>
+<use xlink:href="#Atom-Y" x="852,05" y="316,54"/>
+<use xlink:href="#Atom-Y" x="813,07" y="249,04"/>
+<use xlink:href="#Atom-O" x="973,35" y="317,06"/><use xlink:href="#Atom-H" x="995,61" y="317,06"/>
+<use xlink:href="#Atom-Y" x="974,99" y="271,54"/>
+<use xlink:href="#Atom-O" x="1096,30" y="317,06"/>
+<use xlink:href="#Atom-O" x="1135,27" y="249,56"/><use xlink:href="#Atom-H" x="1157,53" y="249,56"/>
+<use xlink:href="#Atom-Y" x="1058,96" y="204,04"/>
+<use xlink:href="#Atom-Y" x="1019,99" y="271,54"/>
+<use xlink:href="#Atom-O" x="1219,24" y="317,06"/>
+<use xlink:href="#Atom-O" x="1180,27" y="249,56"/>
+<use xlink:href="#Atom-Y" x="1181,90" y="204,04"/>
+<use xlink:href="#Atom-C" x="1259,12" y="249,56"/><use xlink:href="#Atom-H" x="1279,55" y="249,56"/><use xlink:href="#Atom-3" x="1302,02" y="257,25"/>
+<use xlink:href="#Atom-Y" x="1343,82" y="316,54"/>
+<use xlink:href="#Atom-Y" x="1304,84" y="249,04"/>
+<use xlink:href="#Atom-Y" x="1382,79" y="249,04"/>
+<use xlink:href="#Atom-Y" x="1466,76" y="316,54"/>
+<use xlink:href="#Atom-Y" x="1427,79" y="249,04"/>
+<line x1="0,00" y1="-15,00" x2="0,00" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="0,00" y1="-45,00" x2="-25,00" y2="-59,00" style="stroke:black; stroke-width:3px;" />
+<line x1="0,00" y1="-45,00" x2="29,00" y2="-62,00" style="stroke:black; stroke-width:3px;" />
+<line x1="203,00" y1="-15,00" x2="203,13" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="198,00" y1="-15,00" x2="198,63" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="200,88" y1="-45,00" x2="228,00" y2="-61,00" style="stroke:black; stroke-width:3px;" />
+<line x1="200,88" y1="-45,00" x2="161,91" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="161,91" y1="-67,50" x2="122,94" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="122,94" y1="-45,00" x2="97,00" y2="-59,00" style="stroke:black; stroke-width:3px;" />
+<line x1="164,16" y1="-67,50" x2="164,16" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="159,66" y1="-67,50" x2="159,66" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="161,91" y1="-112,50" x2="136,00" y2="-127,00" style="stroke:black; stroke-width:3px;" />
+<line x1="161,91" y1="-112,50" x2="191,00" y2="-129,00" style="stroke:black; stroke-width:3px;" />
+<line x1="284,86" y1="-45,00" x2="323,83" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="323,83" y1="-67,50" x2="362,80" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="362,80" y1="-45,00" x2="362,00" y2="-14,00" style="stroke:black; stroke-width:3px;" />
+<line x1="362,80" y1="-45,00" x2="392,00" y2="-62,00" style="stroke:black; stroke-width:3px;" />
+<line x1="326,08" y1="-67,50" x2="326,08" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="321,58" y1="-67,50" x2="321,58" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="323,83" y1="-112,50" x2="298,00" y2="-127,00" style="stroke:black; stroke-width:3px;" />
+<line x1="323,83" y1="-112,50" x2="353,00" y2="-129,00" style="stroke:black; stroke-width:3px;" />
+<line x1="284,86" y1="-45,00" x2="284,00" y2="-14,00" style="stroke:black; stroke-width:3px;" />
+<line x1="591,00" y1="-54,00" x2="564,81" y2="-69,45" style="stroke:black; stroke-width:3px;" />
+<line x1="591,00" y1="-48,00" x2="562,56" y2="-65,55" style="stroke:black; stroke-width:3px;" />
+<line x1="563,68" y1="-67,50" x2="563,00" y2="-97,00" style="stroke:black; stroke-width:3px;" />
+<line x1="563,68" y1="-67,50" x2="524,71" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="524,71" y1="-45,00" x2="524,71" y2="-0,00" style="stroke:black; stroke-width:3px;" />
+<line x1="524,71" y1="-0,00" x2="485,74" y2="22,50" style="stroke:black; stroke-width:3px;" />
+<line x1="485,74" y1="15,75" x2="518,87" y2="-3,37" style="stroke:black; stroke-width:3px;" />
+<line x1="485,74" y1="22,50" x2="460,00" y2="7,00" style="stroke:black; stroke-width:3px;" />
+<line x1="446,00" y1="-14,00" x2="446,77" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="446,77" y1="-45,00" x2="485,74" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="524,71" y1="-45,00" x2="485,74" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="485,74" y1="-60,75" x2="518,87" y2="-41,63" style="stroke:black; stroke-width:3px;" />
+<line x1="485,74" y1="-67,50" x2="485,00" y2="-97,00" style="stroke:black; stroke-width:3px;" />
+<line x1="474,00" y1="-118,00" x2="460,00" y2="-126,00" style="stroke:black; stroke-width:3px;" />
+<line x1="662,00" y1="-53,00" x2="686,62" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="686,62" y1="-67,50" x2="725,60" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="725,60" y1="-45,00" x2="725,00" y2="-14,00" style="stroke:black; stroke-width:3px;" />
+<line x1="688,87" y1="-67,50" x2="688,87" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="684,37" y1="-67,50" x2="684,37" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="686,62" y1="-112,50" x2="661,00" y2="-127,00" style="stroke:black; stroke-width:3px;" />
+<line x1="686,62" y1="-112,50" x2="716,00" y2="-129,00" style="stroke:black; stroke-width:3px;" />
+<line x1="647,00" y1="-29,00" x2="647,00" y2="-14,00" style="stroke:black; stroke-width:3px;" />
+<line x1="876,00" y1="-61,00" x2="848,54" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="848,54" y1="-45,00" x2="848,54" y2="-0,00" style="stroke:black; stroke-width:3px;" />
+<line x1="848,54" y1="-0,00" x2="809,57" y2="22,50" style="stroke:black; stroke-width:3px;" />
+<line x1="809,57" y1="15,75" x2="842,69" y2="-3,37" style="stroke:black; stroke-width:3px;" />
+<line x1="809,57" y1="22,50" x2="784,00" y2="7,00" style="stroke:black; stroke-width:3px;" />
+<line x1="770,00" y1="-14,00" x2="770,60" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="770,60" y1="-45,00" x2="809,57" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="848,54" y1="-45,00" x2="809,57" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="809,57" y1="-60,75" x2="842,69" y2="-41,63" style="stroke:black; stroke-width:3px;" />
+<line x1="809,57" y1="-67,50" x2="809,57" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="809,57" y1="-112,50" x2="784,00" y2="-127,00" style="stroke:black; stroke-width:3px;" />
+<line x1="809,57" y1="-112,50" x2="839,00" y2="-129,00" style="stroke:black; stroke-width:3px;" />
+<line x1="902,00" y1="-58,00" x2="926,48" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="926,48" y1="-45,00" x2="955,00" y2="-62,00" style="stroke:black; stroke-width:3px;" />
+<line x1="926,48" y1="-45,00" x2="926,00" y2="-14,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1116,00" y1="-61,00" x2="1088,39" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1088,39" y1="-45,00" x2="1088,39" y2="-0,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1088,39" y1="-0,00" x2="1049,42" y2="22,50" style="stroke:black; stroke-width:3px;" />
+<line x1="1049,42" y1="15,75" x2="1082,55" y2="-3,37" style="stroke:black; stroke-width:3px;" />
+<line x1="1049,42" y1="22,50" x2="1010,45" y2="0,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1010,45" y1="0,00" x2="1010,00" y2="-30,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1023,00" y1="-52,00" x2="1049,42" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="1088,39" y1="-45,00" x2="1049,42" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="1049,42" y1="-60,75" x2="1082,55" y2="-41,63" style="stroke:black; stroke-width:3px;" />
+<line x1="1049,42" y1="-67,50" x2="1049,00" y2="-97,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1142,00" y1="-58,00" x2="1156,00" y2="-50,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1249,18" y1="-65,55" x2="1288,15" y2="-43,05" style="stroke:black; stroke-width:3px;" />
+<line x1="1251,43" y1="-69,45" x2="1290,40" y2="-46,95" style="stroke:black; stroke-width:3px;" />
+<line x1="1289,28" y1="-45,00" x2="1289,00" y2="-14,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1250,31" y1="-67,50" x2="1250,31" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="1250,31" y1="-112,50" x2="1224,00" y2="-127,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1373,25" y1="-67,50" x2="1412,22" y2="-45,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1412,22" y1="-45,00" x2="1412,00" y2="-14,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1375,50" y1="-67,50" x2="1375,50" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="1371,00" y1="-67,50" x2="1371,00" y2="-112,50" style="stroke:black; stroke-width:3px;" />
+<line x1="1373,25" y1="-112,50" x2="1347,00" y2="-127,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1574,13" y1="-45,00" x2="1574,13" y2="-0,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1568,29" y1="-3,37" x2="1568,29" y2="-41,63" style="stroke:black; stroke-width:3px;" />
+<line x1="1574,13" y1="-0,00" x2="1535,16" y2="22,50" style="stroke:black; stroke-width:3px;" />
+<line x1="1535,16" y1="22,50" x2="1535,16" y2="67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="1535,16" y1="67,50" x2="1564,00" y2="84,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1535,16" y1="67,50" x2="1509,00" y2="82,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1535,16" y1="22,50" x2="1496,19" y2="0,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1502,04" y1="-3,37" x2="1535,16" y2="15,75" style="stroke:black; stroke-width:3px;" />
+<line x1="1496,19" y1="0,00" x2="1470,00" y2="14,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1496,19" y1="0,00" x2="1496,00" y2="-30,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1509,00" y1="-52,00" x2="1535,16" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="1574,13" y1="-45,00" x2="1535,16" y2="-67,50" style="stroke:black; stroke-width:3px;" />
+<line x1="-160,00" y1="276,00" x2="-160,00" y2="290,00" style="stroke:black; stroke-width:3px;" />
+<line x1="-172,00" y1="254,00" x2="-186,00" y2="245,00" style="stroke:black; stroke-width:3px;" />
+<line x1="-61,00" y1="246,00" x2="-38,03" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="-38,03" y1="260,60" x2="-38,00" y2="290,00" style="stroke:black; stroke-width:3px;" />
+<line x1="-38,03" y1="260,60" x2="-8,00" y2="243,00" style="stroke:black; stroke-width:3px;" />
+<line x1="-76,00" y1="222,00" x2="-77,00" y2="193,10" style="stroke:black; stroke-width:3px;" />
+<line x1="-77,00" y1="193,10" x2="-102,00" y2="178,00" style="stroke:black; stroke-width:3px;" />
+<line x1="-77,00" y1="193,10" x2="-47,00" y2="176,00" style="stroke:black; stroke-width:3px;" />
+<line x1="165,00" y1="290,00" x2="165,11" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="160,00" y1="290,00" x2="160,61" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="162,86" y1="260,60" x2="139,00" y2="246,00" style="stroke:black; stroke-width:3px;" />
+<line x1="123,00" y1="222,00" x2="123,89" y2="193,10" style="stroke:black; stroke-width:3px;" />
+<line x1="123,89" y1="193,10" x2="162,86" y2="170,60" style="stroke:black; stroke-width:3px;" />
+<line x1="162,86" y1="170,60" x2="162,00" y2="140,00" style="stroke:black; stroke-width:3px;" />
+<line x1="125,01" y1="191,16" x2="86,04" y2="168,66" style="stroke:black; stroke-width:3px;" />
+<line x1="122,76" y1="195,05" x2="83,79" y2="172,55" style="stroke:black; stroke-width:3px;" />
+<line x1="84,92" y1="170,60" x2="84,00" y2="140,00" style="stroke:black; stroke-width:3px;" />
+<line x1="84,92" y1="170,60" x2="59,00" y2="185,00" style="stroke:black; stroke-width:3px;" />
+<line x1="162,86" y1="260,60" x2="191,00" y2="244,00" style="stroke:black; stroke-width:3px;" />
+<line x1="327,00" y1="290,00" x2="327,02" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="322,00" y1="290,00" x2="322,52" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="324,77" y1="260,60" x2="300,00" y2="246,00" style="stroke:black; stroke-width:3px;" />
+<line x1="285,00" y1="222,00" x2="285,80" y2="193,10" style="stroke:black; stroke-width:3px;" />
+<line x1="285,80" y1="193,10" x2="260,00" y2="178,00" style="stroke:black; stroke-width:3px;" />
+<line x1="285,80" y1="193,10" x2="315,00" y2="176,00" style="stroke:black; stroke-width:3px;" />
+<line x1="324,77" y1="260,60" x2="353,00" y2="244,00" style="stroke:black; stroke-width:3px;" />
+<line x1="408,00" y1="290,00" x2="408,00" y2="275,00" style="stroke:black; stroke-width:3px;" />
+<line x1="492,71" y1="260,60" x2="492,00" y2="290,00" style="stroke:black; stroke-width:3px;" />
+<line x1="492,71" y1="260,60" x2="467,00" y2="245,00" style="stroke:black; stroke-width:3px;" />
+<line x1="492,71" y1="260,60" x2="522,00" y2="243,00" style="stroke:black; stroke-width:3px;" />
+<line x1="617,00" y1="290,00" x2="617,91" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="613,00" y1="290,00" x2="613,41" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="615,66" y1="260,60" x2="590,00" y2="245,00" style="stroke:black; stroke-width:3px;" />
+<line x1="615,66" y1="260,60" x2="645,00" y2="243,00" style="stroke:black; stroke-width:3px;" />
+<line x1="737,47" y1="240,05" x2="776,44" y2="262,55" style="stroke:black; stroke-width:3px;" />
+<line x1="739,72" y1="236,16" x2="778,69" y2="258,66" style="stroke:black; stroke-width:3px;" />
+<line x1="777,57" y1="260,60" x2="777,00" y2="290,00" style="stroke:black; stroke-width:3px;" />
+<line x1="738,60" y1="238,10" x2="738,60" y2="193,10" style="stroke:black; stroke-width:3px;" />
+<line x1="738,60" y1="193,10" x2="713,00" y2="178,00" style="stroke:black; stroke-width:3px;" />
+<line x1="738,60" y1="193,10" x2="768,00" y2="176,00" style="stroke:black; stroke-width:3px;" />
+<line x1="939,48" y1="260,60" x2="939,48" y2="305,60" style="stroke:black; stroke-width:3px;" />
+<line x1="939,48" y1="305,60" x2="900,51" y2="328,10" style="stroke:black; stroke-width:3px;" />
+<line x1="900,51" y1="321,35" x2="933,64" y2="302,23" style="stroke:black; stroke-width:3px;" />
+<line x1="900,51" y1="328,10" x2="875,00" y2="313,00" style="stroke:black; stroke-width:3px;" />
+<line x1="861,00" y1="290,00" x2="861,54" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="861,54" y1="260,60" x2="900,51" y2="238,10" style="stroke:black; stroke-width:3px;" />
+<line x1="939,48" y1="260,60" x2="900,51" y2="238,10" style="stroke:black; stroke-width:3px;" />
+<line x1="900,51" y1="244,85" x2="933,64" y2="263,98" style="stroke:black; stroke-width:3px;" />
+<line x1="861,54" y1="260,60" x2="836,00" y2="245,00" style="stroke:black; stroke-width:3px;" />
+<line x1="984,00" y1="290,00" x2="984,00" y2="275,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1109,00" y1="290,00" x2="1109,68" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="1105,00" y1="290,00" x2="1105,18" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="1107,43" y1="260,60" x2="1135,00" y2="244,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1107,43" y1="260,60" x2="1068,45" y2="238,10" style="stroke:black; stroke-width:3px;" />
+<line x1="1068,45" y1="238,10" x2="1068,00" y2="208,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1068,45" y1="238,10" x2="1042,00" y2="252,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1232,00" y1="290,00" x2="1232,62" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="1228,00" y1="290,00" x2="1228,12" y2="260,60" style="stroke:black; stroke-width:3px;" />
+<line x1="1230,37" y1="260,60" x2="1206,00" y2="246,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1191,00" y1="222,00" x2="1191,00" y2="208,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1230,37" y1="260,60" x2="1259,00" y2="244,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1353,31" y1="260,60" x2="1353,00" y2="290,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1353,31" y1="260,60" x2="1327,00" y2="245,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1353,31" y1="260,60" x2="1382,00" y2="243,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1476,25" y1="260,60" x2="1476,00" y2="290,00" style="stroke:black; stroke-width:3px;" />
+<line x1="1476,25" y1="260,60" x2="1450,00" y2="245,00" style="stroke:black; stroke-width:3px;" />
+</g>
+</svg>

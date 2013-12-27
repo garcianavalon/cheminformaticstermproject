@@ -17,8 +17,10 @@ public class Main {
 		fragments.generateFragments(parser.parseSmiles("OC(=O)C1=C(C=CC=C1)OC(=O)C"));
 		System.out.println( (fragments.getFragmentsAsKeyValuePairs()).size() );
 		int cnt = 0;
-		for (SimpleEntry<Integer, Integer> se : fragments.getFragmentsAsKeyValuePairs())
+		for (SimpleEntry<String, Integer> se : fragments.getFragmentsAsSMILESSortedByFrequency()) {
 			cnt += se.getValue();
+			System.out.println(se.getKey());
+		}
 		System.out.println(cnt);
 	}
 	
