@@ -13,7 +13,7 @@ public class Main {
 		SmilesParser parser = new SmilesParser( DefaultChemObjectBuilder.getInstance() );
 		ECFFragmenter fragments = new ECFFragmenter();
 		fragments.generateFragments(parser.parseSmiles("cccc"));
-		System.out.println( (fragments.getFragmentsAsContainers()).size() );
+		System.out.println( (fragments.getFragmentsAsKeyValuePairs()).size() );
 	}
 	
 	 

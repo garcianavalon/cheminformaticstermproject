@@ -123,5 +123,6 @@
 	<classpathentry kind="lib" path="lib/xpp3-1.1.4c.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/trenous/Documents/GitHub/cheminformaticstermproject/lib/junit-addons-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
