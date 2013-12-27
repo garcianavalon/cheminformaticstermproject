@@ -1,4 +1,5 @@
 package test.ECFFragmenter;
+
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class TestFragmenting {
 	SmilesGenerator sg;
 	ECFFragmenter fragmenter;
 	InputHandler handler;
-	
+
 	@Before
 	public void setUp() throws Throwable {
 		sg = new SmilesGenerator();
@@ -47,7 +48,7 @@ public class TestFragmenting {
 		// Prepare for testCountGeneration
 		ArrayList<String> testList = new ArrayList<String>();
 		for (SimpleEntry<String, Integer> se : expectedResults.get(0)) {
-			for (int i = 0 ; i < se.getValue() ; i++) {
+			for (int i = 0; i < se.getValue(); i++) {
 				testList.add(se.getKey());
 			}
 		}
@@ -96,7 +97,7 @@ public class TestFragmenting {
 						"Did not find Object :" + se + " in list " + i,
 						results.get(i), se);
 	}
-	
+
 	@Test
 	public void assertResultsSubsetOfExpectedResults() {
 		for (int i = 0; i < testSMILES.length; i++)
@@ -109,14 +110,12 @@ public class TestFragmenting {
 	@Test
 	public void testCountGeneration() {
 		for (SimpleEntry<String, Integer> se : expectedResults.get(0))
-	    junitx.framework.ListAssert.assertContains(countResults, se);
+			junitx.framework.ListAssert.assertContains(countResults, se);
 	}
 
 	private String canonicalize(String smiles) {
 		return sg.createSMILES(handler.readSmiles(smiles));
 	}
-	
-	
 
 }
 
