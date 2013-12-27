@@ -4,10 +4,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 import org.openscience.cdk.DefaultChemObjectBuilder;
+import org.openscience.cdk.exception.InvalidSmilesException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.io.iterator.IIteratingChemObjectReader;
 import org.openscience.cdk.io.iterator.IteratingMDLReader;
 import org.openscience.cdk.io.iterator.IteratingSMILESReader;
+import org.openscience.cdk.smiles.SmilesParser;
 
 
 public class InputHandler {
@@ -16,7 +18,13 @@ public class InputHandler {
 	}
 
 	public IAtomContainer readSmiles(String smiles) {
-		return null;
+		SmilesParser parser = new SmilesParser( DefaultChemObjectBuilder.getInstance() );
+		try {
+			return parser.parseSmiles(smiles);
+		} catch (InvalidSmilesException e) {
+			System.err.println("Invalid SMILES Format: " +  smiles + "\n" + e.getMessage());
+			return null;
+		}
 	}
 
     public IIteratingChemObjectReader<IAtomContainer> getIteratorForFile(String filename) throws FileNotFoundException {
