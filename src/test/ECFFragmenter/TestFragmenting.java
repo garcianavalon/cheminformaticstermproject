@@ -1,5 +1,4 @@
 package test.ECFFragmenter;
-
 import java.util.AbstractMap;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
@@ -18,11 +17,16 @@ public class TestFragmenting {
 	ArrayList<ArrayList<AbstractMap.SimpleEntry<String, Integer>>> results;
 	ArrayList<ArrayList<String>> expectedResultSets;
 	ArrayList<ArrayList<String>> resultSets;
-
+	ArrayList<AbstractMap.SimpleEntry<String, Integer>> countResults;
+	SmilesGenerator sg;
+	ECFFragmenter fragmenter;
+	InputHandler handler;
+	
 	@Before
-	public void setUp() {
-		ECFFragmenter fragmenter = new ECFFragmenter();
-		InputHandler handler = new InputHandler();
+	public void setUp() throws Throwable {
+		sg = new SmilesGenerator();
+		fragmenter = new ECFFragmenter();
+		handler = new InputHandler();
 		this.results = new ArrayList<ArrayList<AbstractMap.SimpleEntry<String, Integer>>>();
 		this.expectedResults = new ArrayList<ArrayList<AbstractMap.SimpleEntry<String, Integer>>>();
 		for (int i = 0; i < testSMILES.length; i++) {
@@ -40,6 +44,18 @@ public class TestFragmenting {
 				new SimpleEntry<String, Integer>(canonicalize("CC[Y]"), 2));
 		expectedResultSets = getSet(expectedResults);
 		resultSets = getSet(results);
+		// Prepare for testCountGeneration
+		ArrayList<String> testList = new ArrayList<String>();
+		for (SimpleEntry<String, Integer> se : expectedResults.get(0)) {
+			for (int i = 0 ; i < se.getValue() ; i++) {
+				testList.add(se.getKey());
+			}
+		}
+		junitx.util.PrivateAccessor.setField(fragmenter, "fragmentSMILES",
+				testList);
+		junitx.util.PrivateAccessor.invoke(fragmenter, "generateFragmentCount",
+				new Class[0], new Object[0]);
+		this.countResults = fragmenter.getFragmentsAsSMILES();
 	}
 
 	private ArrayList<ArrayList<String>> getSet(
@@ -73,17 +89,34 @@ public class TestFragmenting {
 	}
 
 	@Test
-	public void assertEquals() {
-		for (ArrayList<AbstractMap.SimpleEntry<String, Integer>> res : results)
-			junitx.framework.ListAssert.assertContains(expectedResults, res);
+	public void assertExpectedResultsSubsetOfResults() {
+		for (int i = 0; i < testSMILES.length; i++)
+			for (SimpleEntry<String, Integer> se : expectedResults.get(i))
+				junitx.framework.ListAssert.assertContains(
+						"Did not find Object :" + se + " in list " + i,
+						results.get(i), se);
+	}
+	
+	@Test
+	public void assertResultsSubsetOfExpectedResults() {
+		for (int i = 0; i < testSMILES.length; i++)
+			for (SimpleEntry<String, Integer> se : results.get(i))
+				junitx.framework.ListAssert.assertContains(
+						"Did not find Object :" + se + " in list " + i,
+						expectedResults.get(i), se);
+	}
+
+	@Test
+	public void testCountGeneration() {
+		for (SimpleEntry<String, Integer> se : expectedResults.get(0))
+	    junitx.framework.ListAssert.assertContains(countResults, se);
 	}
 
 	private String canonicalize(String smiles) {
-		InputHandler handler = new InputHandler();
-		SmilesGenerator sg = new SmilesGenerator();
 		return sg.createSMILES(handler.readSmiles(smiles));
-
 	}
+	
+	
 
 }
 

@@ -115,7 +115,7 @@ public class ECFFragmenter {
 	private void generateFragmentCount() {
 		this.fragmentCount = new ArrayList<AbstractMap.SimpleEntry<String, Integer>>();
 		while (!fragmentSMILES.isEmpty()) {
-			int count = 1;
+			int count = 0;
 			String smile = fragmentSMILES.get(0);
 			for (int i = 0; i < fragmentSMILES.size(); i++) {
 				if (fragmentSMILES.get(i).equals(smile)) {
