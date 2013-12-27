@@ -13,7 +13,7 @@ import code.InputHandler;
 
 public class TestFragmenting {
 	
-	String[] testSMILES = {"ccc", "co", "cccc"};
+	String[] testSMILES = {"ccc"};
 	ArrayList<ArrayList<AbstractMap.SimpleEntry <String, Integer>>> expectedResults;
 	ArrayList<ArrayList<AbstractMap.SimpleEntry<String, Integer>>> results;
 	
@@ -30,17 +30,14 @@ public class TestFragmenting {
 			this.results.add(fragmenter.getFragmentsAsSMILES());
 		}
 		
-		this.expectedResults.get(0).add(new SimpleEntry<String, Integer>("cc", 2));
-		this.expectedResults.get(0).add(new SimpleEntry<String, Integer>("ccc", 3));
-		this.expectedResults.get(1).add(new SimpleEntry<String, Integer>("cc", 2));
-		this.expectedResults.get(2).add(new SimpleEntry<String, Integer>("cc", 2));
-		this.expectedResults.get(2).add(new SimpleEntry<String, Integer>("ccc", 4));
-		this.expectedResults.get(2).add(new SimpleEntry<String, Integer>("cccc", 4));
+		this.expectedResults.get(0).add(new SimpleEntry<String, Integer>("C[Y]", 2));
+		this.expectedResults.get(0).add(new SimpleEntry<String, Integer>("[Y]C[Y]", 1));
+		this.expectedResults.get(0).add(new SimpleEntry<String, Integer>("CC[Y]", 2));
 	}
 	@Test
 	public void testSmiles() {
-			junitx.framework.ListAssert.assertEquals(expectedResults, results);
-			
+			for (ArrayList<AbstractMap.SimpleEntry<String, Integer>> res : results)
+			junitx.framework.ListAssert.assertContains(expectedResults, res);
 	}
 		
 }
