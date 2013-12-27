@@ -4,3 +4,4 @@
 *.jar
 *.war
 *.ear
+!lib/junit-addons-1.4.jar
