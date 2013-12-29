@@ -1,24 +1,24 @@
 package test.ECFFragmenter;
 
-import java.util.AbstractMap;
-import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.smiles.SmilesGenerator;
 
+import code.ECFFragment;
 import code.ECFFragmenter;
 import code.InputHandler;
 
 public class TestFragmenting {
 
 	String[] testSMILES = { "ccc" };
-	ArrayList<ArrayList<AbstractMap.SimpleEntry<String, Integer>>> expectedResults;
-	ArrayList<ArrayList<AbstractMap.SimpleEntry<String, Integer>>> results;
+	ArrayList<ArrayList<ECFFragment>> expectedResults;
+	ArrayList<ArrayList<ECFFragment>> results;
 	ArrayList<ArrayList<String>> expectedResultSets;
 	ArrayList<ArrayList<String>> resultSets;
-	ArrayList<AbstractMap.SimpleEntry<String, Integer>> countResults;
+	ArrayList<ECFFragment> countResults;
 	SmilesGenerator sg;
 	ECFFragmenter fragmenter;
 	InputHandler handler;
@@ -28,27 +28,27 @@ public class TestFragmenting {
 		sg = new SmilesGenerator();
 		fragmenter = new ECFFragmenter();
 		handler = new InputHandler();
-		this.results = new ArrayList<ArrayList<AbstractMap.SimpleEntry<String, Integer>>>();
-		this.expectedResults = new ArrayList<ArrayList<AbstractMap.SimpleEntry<String, Integer>>>();
+		this.results = new ArrayList<ArrayList<ECFFragment>>();
+		this.expectedResults = new ArrayList<ArrayList<ECFFragment>>();
 		for (int i = 0; i < testSMILES.length; i++) {
 			this.expectedResults
-					.add(new ArrayList<AbstractMap.SimpleEntry<String, Integer>>());
+					.add(new ArrayList<ECFFragment>());
 			fragmenter.generateFragments(handler.readSmiles(testSMILES[i]));
 			this.results.add(fragmenter.getFragmentsAsSMILES());
 		}
 
 		this.expectedResults.get(0).add(
-				new SimpleEntry<String, Integer>(canonicalize("C[Y]"), 2));
+				new ECFFragment(2, canonicalize("C[Y]")));
 		this.expectedResults.get(0).add(
-				new SimpleEntry<String, Integer>(canonicalize("[Y]C[Y]"), 1));
+				new ECFFragment(1, canonicalize("[Y]C[Y]")));
 		this.expectedResults.get(0).add(
-				new SimpleEntry<String, Integer>(canonicalize("CC[Y]"), 2));
+				new ECFFragment(2, canonicalize("CC[Y]")));
 		expectedResultSets = getSet(expectedResults);
 		resultSets = getSet(results);
 		// Prepare for testCountGeneration
 		ArrayList<String> testList = new ArrayList<String>();
-		for (SimpleEntry<String, Integer> se : expectedResults.get(0)) {
-			for (int i = 0; i < se.getValue(); i++) {
+		for (ECFFragment se : expectedResults.get(0)) {
+			for (int i = 0; i < se.getCount(); i++) {
 				testList.add(se.getKey());
 			}
 		}
@@ -60,14 +60,14 @@ public class TestFragmenting {
 	}
 
 	private ArrayList<ArrayList<String>> getSet(
-			ArrayList<ArrayList<SimpleEntry<String, Integer>>> setOfBags) {
+			ArrayList<ArrayList<ECFFragment>> setOfBags) {
 		ArrayList<ArrayList<String>> setOfSets = new ArrayList<ArrayList<String>>();
-		for (ArrayList<SimpleEntry<String, Integer>> bag : setOfBags) {
+		for (ArrayList<ECFFragment> bag : setOfBags) {
 			ArrayList<String> set = new ArrayList<String>();
 			setOfSets.add(set);
-			for (SimpleEntry<String, Integer> entry : bag) {
-				if (!set.contains(entry.getKey()))
-					set.add(entry.getKey());
+			for (ECFFragment fragment : bag) {
+				if (!set.contains(fragment.getKey()))
+					set.add(fragment.getKey());
 			}
 		}
 		return setOfSets;
@@ -92,29 +92,38 @@ public class TestFragmenting {
 	@Test
 	public void assertExpectedResultsSubsetOfResults() {
 		for (int i = 0; i < testSMILES.length; i++)
-			for (SimpleEntry<String, Integer> se : expectedResults.get(i))
+			for (ECFFragment frag : expectedResults.get(i))
 				junitx.framework.ListAssert.assertContains(
-						"Did not find Object :" + se + " in list " + i,
-						results.get(i), se);
+						"Did not find Object :" + frag + " in list " + i,
+						results.get(i), frag);
 	}
 
 	@Test
 	public void assertResultsSubsetOfExpectedResults() {
 		for (int i = 0; i < testSMILES.length; i++)
-			for (SimpleEntry<String, Integer> se : results.get(i))
+			for (ECFFragment frag : results.get(i))
 				junitx.framework.ListAssert.assertContains(
-						"Did not find Object :" + se + " in list " + i,
-						expectedResults.get(i), se);
+						"Did not find Object :" + frag + " in list " + i,
+						expectedResults.get(i), frag);
 	}
 
 	@Test
 	public void testCountGeneration() {
-		for (SimpleEntry<String, Integer> se : expectedResults.get(0))
-			junitx.framework.ListAssert.assertContains(countResults, se);
+		for (ECFFragment frag : expectedResults.get(0))
+			junitx.framework.ListAssert.assertContains(countResults, frag);
 	}
 
 	private String canonicalize(String smiles) {
-		return sg.createSMILES(handler.readSmiles(smiles));
+		try {
+			return sg.create(handler.readSmiles(smiles));
+		} catch (CDKException e) {
+			System.err.println("CDKException occured for fragment:\n" + smiles);
+			System.err.println("Message:");
+			System.err.println(e.getMessage());
+			System.err.println("Stacktrace:");
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

@@ -97,7 +97,7 @@
 	<classpathentry kind="lib" path="lib/cdk-smarts-sources.jar"/>
 	<classpathentry kind="lib" path="lib/cdk-smarts.jar"/>
 	<classpathentry kind="lib" path="lib/cdk-smiles-sources.jar"/>
-	<classpathentry kind="lib" path="lib/cdk-smiles.jar"/>
+	<classpathentry kind="lib" path="lib/cdk-smiles.jar" sourcepath="C:/Users/trenous/Desktop/Cheminformatics Project/cdk-src+libs-1.5.4/src/main/org/openscience/cdk/smiles"/>
 	<classpathentry kind="lib" path="lib/cdk-smsd-sources.jar"/>
 	<classpathentry kind="lib" path="lib/cdk-smsd.jar"/>
 	<classpathentry kind="lib" path="lib/cdk-standard-sources.jar"/>

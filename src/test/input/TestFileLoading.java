@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.io.iterator.IIteratingChemObjectReader;
-import org.openscience.cdk.io.iterator.IteratingMDLReader;
+import org.openscience.cdk.io.iterator.IteratingSDFReader;
 
 import code.InputHandler;
 
@@ -31,7 +31,7 @@ public class TestFileLoading {
 	}
 	@Test
 	public void SDFfileReturnsCorrectReader() {
-		assert(reader instanceof IteratingMDLReader);
+		assert(reader instanceof IteratingSDFReader);
 	}
 
 }
