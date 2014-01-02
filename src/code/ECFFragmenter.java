@@ -81,7 +81,8 @@ public class ECFFragmenter {
 						nextLayerBonds.add(atomContainer.getBond(lastLayerAtom,
 								nextLayerAtom));
 					} else {
-						IAtom starAtom = new Atom("Y");
+						IAtom starAtom = new Atom("A");
+						starAtom.setImplicitHydrogenCount(0);
 						IBond starBond = new Bond(lastLayerAtom, starAtom);
 						nextLayerAtoms.add(starAtom);
 						nextLayerBonds.add(starBond);
@@ -137,6 +138,7 @@ public class ECFFragmenter {
 	 */
 	private void generateCanonicalSmiles() {
 		SmilesGenerator sg = new SmilesGenerator();
+		//sg.setUseAromaticityFlag(true);
 		this.fragmentSMILES = new ArrayList<String>();
 		for (IAtomContainer fragment : this.fragmentList)
 			try {
@@ -182,13 +184,13 @@ public class ECFFragmenter {
 	 * @return The generated Fragments
 	 */
 	public ArrayList<ECFFragment> getFragmentsAsSMILESSortedByFrequency() {
-		class  MyComparator implements Comparator<ECFFragment> {
 
+		class MyComparator implements Comparator<ECFFragment> {
 			@Override
 			public int compare(ECFFragment f1, ECFFragment f2) {
-				return (f1.getCount() == f2.getCount()) ?
-						f1.getKey().compareTo(f2.getKey()) : 
-							(f1.getCount() < f2.getCount()) ? -1 : 1;
+				return (f1.getCount() == f2.getCount()) ? f1.getKey()
+						.compareTo(f2.getKey()) : (f1.getCount() < f2
+						.getCount()) ? -1 : 1;
 			}
 
 		}
