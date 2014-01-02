@@ -1,17 +1,17 @@
 package code;
+
 public class ECFFragment {
 	private int count;
 	private String key;
 	private Double score;
-	
-	
+
 	public ECFFragment(int count, String key) {
 		super();
 		this.count = count;
 		this.key = key;
 		this.score = null;
 	}
-	
+
 	public ECFFragment(int count, String key, Double score) {
 		super();
 		this.count = count;
@@ -42,6 +42,5 @@ public class ECFFragment {
 	public void setKey(String key) {
 		this.key = key;
 	}
-	
-	
+
 }

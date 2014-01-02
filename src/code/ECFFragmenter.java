@@ -26,8 +26,6 @@ public class ECFFragmenter {
 	private ArrayList<IAtomContainer> fragmentList;
 	private ArrayList<String> fragmentSMILES;
 	private IAtomContainer atomContainer;
-	
-	
 
 	/**
 	 * constructor
@@ -109,7 +107,6 @@ public class ECFFragmenter {
 				: recursiveFragmenter(lastLayerAtoms, lastLayerBonds, i - 1);
 
 	}
-
 
 
 	/**
