@@ -1,3 +1,4 @@
+
 package code;
 
 import java.util.ArrayList;
@@ -26,8 +27,10 @@ public class SAScoreCalc {
 	}
 
 	public double calculateScore(IAtomContainer atomContainer) {
-		return 0;
+		return FragmentContributionsCalc.getStoredContributions(FragmentContributionsCalc.fragmentMolecule(atomContainer)) - ;
 	}
+	
+	public double calcComplexityScore()
 
 	public double calcRingComplexityScore() throws CDKException {
 		int nSpiroAtoms = getNumberOfSpiroAtoms();
