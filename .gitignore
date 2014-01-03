@@ -1,6 +1,11 @@
-*.class
 
+*.class
+.classpath
 # Package Files #
 *.jar
 *.war
 *.ear
+*.class
+
+map.ser
+pubchem/*
