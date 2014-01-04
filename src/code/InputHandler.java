@@ -1,3 +1,4 @@
+
 package code;
 
 import java.io.File;
@@ -8,6 +9,7 @@ import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.InvalidSmilesException;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.io.iterator.IIteratingChemObjectReader;
+
 import org.openscience.cdk.io.iterator.IteratingSDFReader;
 import org.openscience.cdk.io.iterator.IteratingSMILESReader;
 import org.openscience.cdk.smiles.SmilesParser;
@@ -50,7 +52,6 @@ public class InputHandler {
 			iterativeReader = new IteratingSMILESReader(new FileInputStream(
 					file), DefaultChemObjectBuilder.getInstance());
 		}
-
 		return iterativeReader;
 	}
 
@@ -58,4 +59,5 @@ public class InputHandler {
 			int count) {
 		return null;
 	}
+
 }

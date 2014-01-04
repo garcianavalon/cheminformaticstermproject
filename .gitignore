@@ -1,11 +1,12 @@
 
-*.class
 .classpath
+# sdf data
+pubchem/*
+map.ser
 # Package Files #
 *.jar
 *.war
 *.ear
 *.class
+!lib/junit-addons-1.4.jar
 
-map.ser
-pubchem/*
