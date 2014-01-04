@@ -51,6 +51,8 @@ public class ECFFragmenter {
 		this.fragmentList = new ArrayList<IAtomContainer>();
 		for (IAtom a : atomContainer.atoms()) { // for each atom, generate
 												// fragments
+			if (a.getAtomicNumber() == 1)
+				continue;
 			for (int i = 0; i < 3; i++) {// iterate from one bond to three bond
 											// size
 				IAtomContainer fragment = new AtomContainer();
@@ -75,6 +77,8 @@ public class ECFFragmenter {
 		for (IAtom lastLayerAtom : lastLayerAtoms) {
 			for (IAtom nextLayerAtom : atomContainer
 					.getConnectedAtomsList(lastLayerAtom)) {
+				if (nextLayerAtom.getAtomicNumber() == 1)
+					continue;
 				if (!lastLayerAtoms.contains(nextLayerAtom)
 						&& !nextLayerAtoms.contains(nextLayerAtom)
 						&& starAtoms.get(nextLayerAtom) == null) {
