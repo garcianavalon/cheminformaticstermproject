@@ -183,7 +183,7 @@ public class ECFFragmenter {
 	public ArrayList<ECFFragment> getFragmentsAsSMILESSortedByFrequency() {
 
 		
-		Collections.sort(this.fragmentCount, ECFFragment.getComparator());
+		Collections.sort(this.fragmentCount);
 		return this.fragmentCount;
 	}
 

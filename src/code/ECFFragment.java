@@ -3,25 +3,21 @@ package code;
 
 import java.util.Comparator;
 
-public class ECFFragment {
-	
+public class ECFFragment implements Comparable<ECFFragment>{
+	private Double score;
 	private int count;
 	private String key;
-	private Double score;
-
-
-	public ECFFragment(int count, String key) {
-		super();
-		this.count = count;
-		this.key = key;
-		this.score = null;
-	}
 
 	public ECFFragment(int count, String key, Double score) {
 		super();
 		this.count = count;
 		this.key = key;
 		this.score = score;
+	}
+
+	public ECFFragment(int count, String smile) {
+		this.count = count;
+		this.key = smile;
 	}
 
 	public int getCount() {
@@ -47,22 +43,14 @@ public class ECFFragment {
 	public void setKey(String key) {
 		this.key = key;
 	}
-	
-	public static Comparator<ECFFragment> getComparator() {
-		class ECFComparator implements Comparator<ECFFragment> {
-			@Override
-			public int compare(ECFFragment f2, ECFFragment f1) {
-				return (f1.getCount() == f2.getCount()) ? f1.getKey()
-						.compareTo(f2.getKey()) : (f1.getCount() < f2
-						.getCount()) ? -1 : 1;
-			}
 
-		}
-		return new ECFComparator();
-		
+	@Override
+	public int compareTo(ECFFragment otherFragment) {
+		return this.count < otherFragment.getCount() ? -1 : this.count > otherFragment
+				.getCount() ? 1 : this.key.compareTo(otherFragment.getKey());
 	}
 
+	
 }
-
 
 
