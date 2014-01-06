@@ -16,7 +16,7 @@ public class Main {
 		IAtomContainer aspirin = parser
 				.parseSmiles("cc");
 		ECFFragmenter fragments = new ECFFragmenter();
-		fragments.generateFragments(aspirin);
+		fragments.generateFragments(aspirin,true);
 
 		System.out.println((fragments.getFragmentsAsSMILES()).size());
 		int cnt = 0;

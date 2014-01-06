@@ -33,7 +33,7 @@ public class SAScoreCalc {
 
 	public double calculateScore(IAtomContainer atomContainer) throws CDKException {
 		this.molecule = atomContainer;
-		this.fragmenter.generateFragments(this.molecule);
+		this.fragmenter.generateFragments(this.molecule,true);
 		double fragmentContributions = FragmentContributionsCalc.getStoredContributions(this.fragmenter.getFragmentsAsSMILES());
 		double complexityPenalty = this.getComplexityPenalty();
 		System.out.println("Complexity Penalty: " + complexityPenalty + "FragmentContributions: " + fragmentContributions);

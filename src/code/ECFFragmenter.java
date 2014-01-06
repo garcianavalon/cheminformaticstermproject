@@ -48,10 +48,15 @@ public class ECFFragmenter {
 	 *            The IAtomContainer to be fragmented
 	 * @throws CDKException 
 	 */
-	public void generateFragments(IAtomContainer atomContainer) throws CDKException {
+	public void generateFragments(IAtomContainer atomContainer,boolean useAromaticity) throws CDKException {
 		this.atomContainer = atomContainer;
 		this.fragmentList = new ArrayList<IAtomContainer>();
-
+		if(useAromaticity) {
+			Aromaticity aromaticity = new Aromaticity(ElectronDonation.daylight(),
+					Cycles.cdkAromaticSet());
+			AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(atomContainer);
+		     aromaticity.apply(atomContainer);
+		}	
 		for (IAtom a : atomContainer.atoms())
 			a.setImplicitHydrogenCount(0);
 		for (IAtom a : atomContainer.atoms()) { // for each atom, generate
@@ -69,7 +74,7 @@ public class ECFFragmenter {
 												// is distinct
 			}
 		}
-		this.generateCanonicalSmiles();
+		this.generateCanonicalSmiles(useAromaticity);
 		this.generateFragmentCount();
 
 	}
@@ -146,16 +151,14 @@ public class ECFFragmenter {
 	/**
 	 * Turns the retreived fragments into a cannical SMILES representation
 	 */
-	private void generateCanonicalSmiles() {
+	private void generateCanonicalSmiles(boolean useAromaticity) {
 
-		SmilesGenerator sg = SmilesGenerator.unique().aromatic();
+		SmilesGenerator sg = SmilesGenerator.unique();
+		if(useAromaticity)
+			sg.aromatic();
 		this.fragmentSMILES = new ArrayList<String>();
-		Aromaticity aromaticity = new Aromaticity(ElectronDonation.daylight(),
-				Cycles.cdkAromaticSet());
 		for (IAtomContainer fragment : this.fragmentList)
 			try {
-				AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(fragment);
-			     aromaticity.apply(fragment);
 
 				fragmentSMILES.add(sg.create(fragment));
 			} catch (CDKException e) {

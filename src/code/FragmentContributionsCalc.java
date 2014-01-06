@@ -63,7 +63,7 @@ public class FragmentContributionsCalc {
 	 * @throws CDKException 
 	 */
 	public static ArrayList<ECFFragment> fragmentMolecule(IAtomContainer molecule) throws CDKException{
-		fragmenter.generateFragments(molecule);
+		fragmenter.generateFragments(molecule,true);
 		return fragmenter.getFragmentsAsSMILES();
 	}
 	
