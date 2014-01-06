@@ -3,8 +3,10 @@ package code;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -61,5 +63,10 @@ public class IOHandler {
 		HashMap<String, Double> fragmentContributions = (HashMap<String, Double>) ois.readObject();
 		ois.close();
         return fragmentContributions;
+	}
+	public void serializeObject(Object o,String filename) throws FileNotFoundException, IOException{
+        ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename));
+        oos.writeObject(o);
+        oos.close();
 	}
 }

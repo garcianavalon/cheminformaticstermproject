@@ -42,14 +42,9 @@ public class FragmentContributionsCalc {
 		if (OUTPUT_ALL_CONTRIBUTIONS)
 		for (Entry<String, Double> s: contributions.entrySet())
 			System.out.println(s.getKey() + " " + s.getValue());
-		FileOutputStream fos = new FileOutputStream("map.ser");
-        ObjectOutputStream oos = new ObjectOutputStream(fos);
-        oos.writeObject(contributions);
-        oos.close();
-        fos = new FileOutputStream("count.ser");
-        oos = new ObjectOutputStream(fos);
-        oos.writeObject(fragments);
-        oos.close();
+		handler.serializeObject(contributions,"map.ser");
+		handler.serializeObject(fragments, "count.ser");
+
         System.out.println("Total Runtime for " + i + " Molecules: " + (System.currentTimeMillis() - time) /1000 + " s");
 		
 		
