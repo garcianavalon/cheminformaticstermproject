@@ -58,8 +58,8 @@ public class IOHandler {
 	}
 
 	public HashMap<String, Double> loadStoredFragmentContributions(boolean useAromaticity) throws IOException, ClassNotFoundException {
-        String filename = useAromaticity ? "map.ser":"aromaticmap.ser"; 
-		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename));
+		String extra = useAromaticity ? "aromatic" : "standard";
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(extra+"map.ser"));
 		HashMap<String, Double> fragmentContributions = (HashMap<String, Double>) ois.readObject();
 		ois.close();
         return fragmentContributions;

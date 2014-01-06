@@ -1,10 +1,6 @@
 package code;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -27,37 +23,40 @@ public class FragmentContributionsCalc {
 		fragments = new HashMap<String, Integer>();
 		IOHandler handler = new IOHandler();
 		IIteratingChemObjectReader<IAtomContainer> reader = handler.getIteratorForFile(args[0]);
+		boolean useAromaticity = true;
 		int i = 0;
 		Long time = System.currentTimeMillis();
 		Long time2 = System.currentTimeMillis();
 		while (reader.hasNext()) {
 			// generate some output
-			if(i++ % 10000 == 0) {System.out.println(i + " Molecules Processed, time taken " + (System.currentTimeMillis() - time2)/ 1000 + "s , total" + (System.currentTimeMillis() - time) + "s " );
+			if(i++ % 10000 == 0) {System.out.println(i + " Molecules Processed, time taken " + format(time2) +" , total" + format(time));
 			time2 = System.currentTimeMillis();
 			}
 			
-			updateFragmentFrequencyData(fragmentMolecule(reader.next()));
+			updateFragmentFrequencyData(fragmentMolecule(reader.next(),useAromaticity));
 		}
 		HashMap<String, Double> contributions = calculateContributions();
 		if (OUTPUT_ALL_CONTRIBUTIONS)
 		for (Entry<String, Double> s: contributions.entrySet())
 			System.out.println(s.getKey() + " " + s.getValue());
-		handler.serializeObject(contributions,"map.ser");
-		handler.serializeObject(fragments, "count.ser");
+		String extra = useAromaticity ? "aromatic" : "standard";
+		handler.serializeObject(contributions,extra+"map.ser");
+		handler.serializeObject(fragments, extra+"count.ser");
 
-        System.out.println("Total Runtime for " + i + " Molecules: " + (System.currentTimeMillis() - time) /1000 + " s");
-		
+        System.out.println("Total Runtime for " + i + " Molecules: " + format(time));
 		
 	}
-
+	private static String format(Long time) {
+		return (System.currentTimeMillis() - time) /1000 + " s";
+	}
 	/**
 	 * 
 	 * @param molecule A Molecule to be fragmented
 	 * @return The generated fragments
 	 * @throws CDKException 
 	 */
-	public static ArrayList<ECFFragment> fragmentMolecule(IAtomContainer molecule) throws CDKException{
-		fragmenter.generateFragments(molecule,true);
+	public static ArrayList<ECFFragment> fragmentMolecule(IAtomContainer molecule,boolean useAromaticity) throws CDKException{
+		fragmenter.generateFragments(molecule,useAromaticity);
 		return fragmenter.getFragmentsAsSMILES();
 	}
 	
@@ -99,7 +98,6 @@ public class FragmentContributionsCalc {
 			fragmentContributions.put(smiles, Math.log( new Double(fragments.get(smiles)) / new Double(count)));
 			if (OUTPUT_CONTRIBUTION_CALC)
 				System.out.println(smiles + ": " + fragments.get(smiles) + ", " + count + ", resultLog: " + fragmentContributions.get(smiles));
-			
 		}
 		System.out.println("CutOff : " + count);
 		return fragmentContributions;
