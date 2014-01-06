@@ -1,5 +1,6 @@
 package code;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,32 +22,22 @@ public class SAScoreCalc {
 
 	private ECFFragmenter fragmenter;
 	private IAtomContainer molecule;
-	private static final double RING_COMPLEXITY_WEIGHT = 1;
-	private static final double STEREO_COMPLEXITY_WEIGHT = 1;
-	private static final double MACROCYCLE_WEIGHT = 1;
-	private static final double SIZEPENALTY_WEIGHT = 1;
 
 	public SAScoreCalc(IAtomContainer molecule) {
 		this.molecule = molecule;
 		this.fragmenter = new ECFFragmenter();
 	}
 
-	public double calculateScore(IAtomContainer atomContainer) throws CDKException {
+	public double calculateScore(IAtomContainer atomContainer,boolean useAromaticity) throws CDKException, ClassNotFoundException, IOException {
 		this.molecule = atomContainer;
 		this.fragmenter.generateFragments(this.molecule,true);
-		double fragmentContributions = FragmentContributionsCalc.getStoredContributions(this.fragmenter.getFragmentsAsSMILES());
-		double complexityPenalty = this.getComplexityPenalty();
+		double fragmentContributions = FragmentContributionsCalc.getStoredContributions(this.fragmenter.getFragmentsAsSMILES(),useAromaticity);
+		double complexityPenalty = this.calcComplexityScore(1,1,1,1);
 		System.out.println("Complexity Penalty: " + complexityPenalty + "FragmentContributions: " + fragmentContributions);
 		return fragmentContributions - complexityPenalty;
 		
 	}
 	
-	private double getComplexityPenalty() throws CDKException {
-		return this.calcMacroCyclePenalty() * MACROCYCLE_WEIGHT
-			  + this.calcRingComplexityScore() * RING_COMPLEXITY_WEIGHT
-			  + this.calcStereoComplexityScore() * STEREO_COMPLEXITY_WEIGHT
-			  + this.calcSizePenalty()            * SIZEPENALTY_WEIGHT;
-	}
 	public double calcComplexityScore(double ringComplexityWeight, double stereoComplexityWeight, double sizePenaltyWeight,
 			double macroCyclePenaltyWeight) throws CDKException {
 		return ringComplexityWeight * this.calcRingComplexityScore() + stereoComplexityWeight * this.calcStereoComplexityScore() +

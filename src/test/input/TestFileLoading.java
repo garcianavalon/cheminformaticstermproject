@@ -8,7 +8,7 @@ import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.io.iterator.IIteratingChemObjectReader;
 import org.openscience.cdk.io.iterator.IteratingSDFReader;
 
-import code.InputHandler;
+import code.IOHandler;
 
 
 public class TestFileLoading {
@@ -16,7 +16,7 @@ public class TestFileLoading {
 	private IIteratingChemObjectReader<IAtomContainer> reader;
 	@Before
 	public void setUp() throws Exception {
-		InputHandler handler = new InputHandler();
+		IOHandler handler = new IOHandler();
 		reader = handler.getIteratorForFile("./pubchem_files/aspirin.sdf");
 	}
 

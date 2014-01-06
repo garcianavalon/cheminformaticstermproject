@@ -22,11 +22,10 @@ public class FragmentContributionsCalc {
 	private static final boolean OUTPUT_ALL_CONTRIBUTIONS = false;
 	private static final boolean OUTPUT_CONTRIBUTION_CALC = false;
 	
-	
 	public static void main(String[] args) throws IOException, CDKException {
 		
 		fragments = new HashMap<String, Integer>();
-		InputHandler handler = new InputHandler();
+		IOHandler handler = new IOHandler();
 		IIteratingChemObjectReader<IAtomContainer> reader = handler.getIteratorForFile(args[0]);
 		int i = 0;
 		Long time = System.currentTimeMillis();
@@ -112,39 +111,11 @@ public class FragmentContributionsCalc {
 		
 	}
 	
-	@SuppressWarnings("unchecked")
-	public static double getStoredContributions(ArrayList<ECFFragment> fragments)  {
+	public static double getStoredContributions(ArrayList<ECFFragment> fragments,boolean useAromaticity) throws ClassNotFoundException, IOException  {
 		
 		if (fragmentContributions == null) {
-			FileInputStream fis = null;
-		try {
-			fis = new FileInputStream("map.ser");
-		} catch (Exception e) {
-			System.err.println("File not found");
-			System.out.println(e.getMessage());
-		}
-        ObjectInputStream ois = null;
-		try {
-			ois = new ObjectInputStream(fis);
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-        try {
-			fragmentContributions = (HashMap<String, Double>) ois.readObject();
-		} catch (ClassNotFoundException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-        try {
-			ois.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			IOHandler handler = new IOHandler();
+			fragmentContributions = handler.loadStoredFragmentContributions(useAromaticity);
 		}
         Double contributionsTotal = 0d;
         Double currentFragmentContribution = null;

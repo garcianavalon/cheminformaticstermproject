@@ -9,7 +9,7 @@ import org.openscience.cdk.smiles.SmilesGenerator;
 
 import code.ECFFragment;
 import code.ECFFragmenter;
-import code.InputHandler;
+import code.IOHandler;
 
 public class TestFragmenting {
 
@@ -21,19 +21,19 @@ public class TestFragmenting {
 	ArrayList<ECFFragment> countResults;
 	SmilesGenerator sg;
 	ECFFragmenter fragmenter;
-	InputHandler handler;
+	IOHandler handler;
 
 	@Before
 	public void setUp() throws Throwable {
 		sg = new SmilesGenerator();
 		fragmenter = new ECFFragmenter();
-		handler = new InputHandler();
+		handler = new IOHandler();
 		this.results = new ArrayList<ArrayList<ECFFragment>>();
 		this.expectedResults = new ArrayList<ArrayList<ECFFragment>>();
 		for (int i = 0; i < testSMILES.length; i++) {
 			this.expectedResults
 					.add(new ArrayList<ECFFragment>());
-			fragmenter.generateFragments(handler.readSmiles(testSMILES[i]));
+			fragmenter.generateFragments(handler.readSmiles(testSMILES[i]),true);
 			this.results.add(fragmenter.getFragmentsAsSMILES());
 		}
 

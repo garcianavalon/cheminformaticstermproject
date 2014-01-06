@@ -3,6 +3,10 @@ package code;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.InvalidSmilesException;
@@ -13,10 +17,7 @@ import org.openscience.cdk.io.iterator.IteratingSDFReader;
 import org.openscience.cdk.io.iterator.IteratingSMILESReader;
 import org.openscience.cdk.smiles.SmilesParser;
 
-public class InputHandler {
-	public IAtomContainer[] readSDF(String filename) {
-		return null;
-	}
+public class IOHandler {
 
 	public IAtomContainer readSmiles(String smiles) {
 		SmilesParser parser = new SmilesParser(
@@ -54,8 +55,11 @@ public class InputHandler {
 		return iterativeReader;
 	}
 
-	public IIteratingChemObjectReader<IAtomContainer> loadRandomRecords(
-			int count) {
-		return null;
+	public HashMap<String, Double> loadStoredFragmentContributions(boolean useAromaticity) throws IOException, ClassNotFoundException {
+        String filename = useAromaticity ? "map.ser":"aromaticmap.ser"; 
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename));
+		HashMap<String, Double> fragmentContributions = (HashMap<String, Double>) ois.readObject();
+		ois.close();
+        return fragmentContributions;
 	}
 }
