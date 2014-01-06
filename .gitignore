@@ -1,8 +1,15 @@
 
+<<<<<<< HEAD
 .classpath
 # sdf data
 pubchem/*
 map.ser
+=======
+# sdf data
+pubchem/*
+map.ser
+count.ser
+>>>>>>> FragmentContribution
 # Package Files #
 *.jar
 *.war

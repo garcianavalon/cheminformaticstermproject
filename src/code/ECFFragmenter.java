@@ -4,17 +4,32 @@ package code;
 
 import java.util.ArrayList;
 import java.util.Collections;
+<<<<<<< HEAD
 import java.util.Comparator;
+=======
+>>>>>>> FragmentContribution
 import java.util.HashMap;
 
 import org.openscience.cdk.Atom;
 import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
+<<<<<<< HEAD
 import org.openscience.cdk.exception.CDKException;
+=======
+import org.openscience.cdk.PseudoAtom;
+import org.openscience.cdk.aromaticity.Aromaticity;
+import org.openscience.cdk.aromaticity.ElectronDonation;
+import org.openscience.cdk.exception.CDKException;
+import org.openscience.cdk.graph.Cycles;
+>>>>>>> FragmentContribution
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.smiles.SmilesGenerator;
+<<<<<<< HEAD
+=======
+import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
+>>>>>>> FragmentContribution
 
 /**
  * This class provides methods to generate and retrieve The ECF4-Type fragments
@@ -28,8 +43,11 @@ public class ECFFragmenter {
 	private ArrayList<IAtomContainer> fragmentList;
 	private ArrayList<String> fragmentSMILES;
 	private IAtomContainer atomContainer;
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> FragmentContribution
 
 	/**
 	 * constructor
@@ -37,6 +55,7 @@ public class ECFFragmenter {
 	public ECFFragmenter() {
 		super();
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Generates the fragments for the given parameter. Subsequent calls to
@@ -118,6 +137,93 @@ public class ECFFragmenter {
 
 
 
+=======
+
+	/**
+	 * Generates the fragments for the given parameter. Subsequent calls to
+	 * getFragmentsAsContainer() will return the fragments found in
+	 * atomContainer
+	 * 
+	 * @param atomContainer
+	 *            The IAtomContainer to be fragmented
+	 * @throws CDKException 
+	 */
+	public void generateFragments(IAtomContainer atomContainer) throws CDKException {
+		this.atomContainer = atomContainer;
+		this.fragmentList = new ArrayList<IAtomContainer>();
+		// Set aromaticity flags so aromatic smiles can be built
+		// test: set all implicit hydrogen count to 0
+		for (IAtom a : atomContainer.atoms())
+			a.setImplicitHydrogenCount(0);
+		for (IAtom a : atomContainer.atoms()) { // for each atom, generate
+												// fragments
+			if (a.getAtomicNumber() == 1)
+				continue;
+			for (int i = 0; i < 3; i++) {// iterate from one bond to three bond
+											// size
+				IAtomContainer fragment = new AtomContainer();
+				ArrayList<IAtom> atomList = new ArrayList<IAtom>();
+				atomList.add(a);
+				if ((fragment = recursiveFragmenter(atomList,
+						new ArrayList<IBond>(), i)) != null)
+					fragmentList.add(fragment); // Only add the fragment if it
+												// is distinct
+			}
+		}
+		this.generateCanonicalSmiles();
+		this.generateFragmentCount();
+
+	}
+
+	private IAtomContainer recursiveFragmenter(ArrayList<IAtom> lastLayerAtoms,
+			ArrayList<IBond> lastLayerBonds, int i) {
+		ArrayList<IAtom> nextLayerAtoms = new ArrayList<IAtom>();
+		ArrayList<IBond> nextLayerBonds = new ArrayList<IBond>();
+		HashMap<IAtom, IAtom> starAtoms = new HashMap<IAtom, IAtom>();
+		for (IAtom lastLayerAtom : lastLayerAtoms) {
+			for (IAtom nextLayerAtom : atomContainer
+					.getConnectedAtomsList(lastLayerAtom)) {
+				if (nextLayerAtom.getAtomicNumber() == 1)
+					continue;
+				if (!lastLayerAtoms.contains(nextLayerAtom)
+						&& !nextLayerAtoms.contains(nextLayerAtom)
+						&& starAtoms.get(nextLayerAtom) == null) {
+					if (i != 0) {
+						nextLayerAtoms.add(nextLayerAtom);
+						nextLayerBonds.add(atomContainer.getBond(lastLayerAtom,
+								nextLayerAtom));
+					} else {
+						IAtom starAtom = new PseudoAtom("A");
+						starAtom.setImplicitHydrogenCount(0);
+						IBond starBond = new Bond(lastLayerAtom, starAtom);
+						nextLayerAtoms.add(starAtom);
+						nextLayerBonds.add(starBond);
+						starAtoms.put(nextLayerAtom, starAtom);
+					}
+				} else if (!lastLayerBonds.contains(atomContainer.getBond(
+						lastLayerAtom, nextLayerAtom))
+						&& !nextLayerBonds.contains(atomContainer.getBond(
+								lastLayerAtom, nextLayerAtom))) {
+					if (starAtoms.get(nextLayerAtom) != null)
+						nextLayerBonds.add(new Bond(lastLayerAtom, starAtoms
+								.get(nextLayerAtom)));
+					else
+						nextLayerBonds.add(atomContainer.getBond(lastLayerAtom,
+								nextLayerAtom));
+				}
+			}
+		}
+		if (nextLayerAtoms.isEmpty())
+			return null;
+		lastLayerAtoms.addAll(nextLayerAtoms);
+		lastLayerBonds.addAll(nextLayerBonds);
+		return (i == 0) ? createAtomContainer(lastLayerAtoms, lastLayerBonds)
+				: recursiveFragmenter(lastLayerAtoms, lastLayerBonds, i - 1);
+
+	}
+
+
+>>>>>>> FragmentContribution
 	/**
 	 * Remove duplicates and store the result as a List of canonical SMILES
 	 * Strings paired with their count
@@ -143,11 +249,22 @@ public class ECFFragmenter {
 	 * Turns the retreived fragments into a cannical SMILES representation
 	 */
 	private void generateCanonicalSmiles() {
+<<<<<<< HEAD
 		SmilesGenerator sg = new SmilesGenerator();
 		//sg.setUseAromaticityFlag(true);
 		this.fragmentSMILES = new ArrayList<String>();
 		for (IAtomContainer fragment : this.fragmentList)
 			try {
+=======
+		SmilesGenerator sg = SmilesGenerator.unique().aromatic();
+		this.fragmentSMILES = new ArrayList<String>();
+		Aromaticity aromaticity = new Aromaticity(ElectronDonation.daylight(),
+				Cycles.cdkAromaticSet());
+		for (IAtomContainer fragment : this.fragmentList)
+			try {
+				AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(fragment);
+			     aromaticity.apply(fragment);
+>>>>>>> FragmentContribution
 				fragmentSMILES.add(sg.create(fragment));
 			} catch (CDKException e) {
 				System.err.println("CDKException occured for fragment:\n" + fragment);
@@ -191,6 +308,7 @@ public class ECFFragmenter {
 	 */
 	public ArrayList<ECFFragment> getFragmentsAsSMILESSortedByFrequency() {
 
+<<<<<<< HEAD
 		class MyComparator implements Comparator<ECFFragment> {
 			@Override
 			public int compare(ECFFragment f1, ECFFragment f2) {
@@ -201,6 +319,10 @@ public class ECFFragmenter {
 
 		}
 		Collections.sort(this.fragmentCount, new MyComparator());
+=======
+		
+		Collections.sort(this.fragmentCount);
+>>>>>>> FragmentContribution
 		return this.fragmentCount;
 	}
 
