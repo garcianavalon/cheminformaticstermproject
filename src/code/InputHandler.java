@@ -13,10 +13,6 @@ import org.openscience.cdk.io.iterator.IIteratingChemObjectReader;
 import org.openscience.cdk.io.iterator.IteratingSDFReader;
 import org.openscience.cdk.io.iterator.IteratingSMILESReader;
 import org.openscience.cdk.smiles.SmilesParser;
-<<<<<<< HEAD
-=======
-
->>>>>>> ComplexityScore
 
 public class InputHandler {
 	public IAtomContainer[] readSDF(String filename) {
