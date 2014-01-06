@@ -1,28 +1,14 @@
-
-<<<<<<< HEAD
 package code;
 
-import org.openscience.cdk.DefaultChemObjectBuilder;
-import org.openscience.cdk.exception.InvalidSmilesException;
-=======
 import java.util.ArrayList;
-
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.exception.CDKException;
 import org.openscience.cdk.interfaces.IAtomContainer;
->>>>>>> FragmentContribution
 import org.openscience.cdk.smiles.SmilesParser;
 
 public class Main {
 
-<<<<<<< HEAD
-	public static void main(String[] args) throws InvalidSmilesException {
-		SmilesParser parser = new SmilesParser(
-				DefaultChemObjectBuilder.getInstance());
-		ECFFragmenter fragments = new ECFFragmenter();
-		fragments.generateFragments(parser
-				.parseSmiles("OC(=O)C1=C(C=CC=C1)OC(=O)C"));
-=======
+
 	public static void main(String[] args) throws CDKException {
 		InputHandler handler = new InputHandler();
 		SmilesParser parser = new SmilesParser(
@@ -31,17 +17,12 @@ public class Main {
 				.parseSmiles("cc");
 		ECFFragmenter fragments = new ECFFragmenter();
 		fragments.generateFragments(aspirin);
->>>>>>> FragmentContribution
+
 		System.out.println((fragments.getFragmentsAsSMILES()).size());
 		int cnt = 0;
 		for (ECFFragment frag : fragments
 				.getFragmentsAsSMILESSortedByFrequency()) {
-<<<<<<< HEAD
-			cnt += frag.getCount();
-			System.out.println(frag.getKey() + " " + frag.getCount() + "x");
-		}
-		System.out.println(cnt);
-=======
+
 			ArrayList<ECFFragment> myFrags = new ArrayList<ECFFragment>();
 			myFrags.add(frag);
 			System.out.println("Contribution of frag " + frag.getKey() + " " + FragmentContributionsCalc.getStoredContributions(myFrags));
@@ -56,7 +37,7 @@ public class Main {
 		System.out.println("Hard molecule Score:" + calcScore.calculateScore(parser.parseSmiles("COC4C=C(C)CC(C=CC=CC#CC1CC1Cl)OC(=O)CC3(O)CC(OC2OC(C)C(O)C(C)(O)C2OC)C(C)C(O3)C4C")));
 		System.out.println("Easy molecule Score:" + calcScore.calculateScore(parser.parseSmiles("COC(=O)c1ccccc1NC(=O)CC(c2ccccc2)c3ccccc3")));
 		System.out.println("Another Easy molecule Score:" + calcScore.calculateScore(parser.parseSmiles("CC5CC(C)C(O)(CC4CC3OC2(CCC1(OC(C=CCCC(O)=O)CC=C1)O2)C(C)CC3O4)OC5C(Br)=C")));
->>>>>>> FragmentContribution
+
 	}
 
 }

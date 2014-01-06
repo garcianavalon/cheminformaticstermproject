@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> FragmentContribution
 package test.ECFFragmenter;
 
 import java.util.ArrayList;
@@ -131,8 +127,3 @@ public class TestFragmenting {
 	}
 
 }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> FragmentContribution

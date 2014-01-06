@@ -1,11 +1,8 @@
 
 package code;
 
-<<<<<<< HEAD
-public class ECFFragment{
-=======
 public class ECFFragment implements Comparable<ECFFragment>{
->>>>>>> FragmentContribution
+
 	private Double score;
 	private int count;
 	private String key;
@@ -46,16 +43,12 @@ public class ECFFragment implements Comparable<ECFFragment>{
 		this.key = key;
 	}
 
-<<<<<<< HEAD
-	
-=======
+
 	@Override
 	public int compareTo(ECFFragment otherFragment) {
 		return this.count > otherFragment.getCount() ? -1 : this.count < otherFragment
 				.getCount() ? 1 : otherFragment.getKey().compareTo(this.key);
 	}
-
->>>>>>> FragmentContribution
 	
 }
 

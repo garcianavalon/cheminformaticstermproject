@@ -1,17 +1,6 @@
 package code;
-<<<<<<< HEAD
-import java.util.ArrayList;
-import org.openscience.cdk.interfaces.IAtomContainer;
 
-public class FragmentContributionsCalc {
-
-	private ECFFragmenter fragmenter;
-	
-	
-	public static void main(String[] args) {
-=======
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -63,8 +52,6 @@ public class FragmentContributionsCalc {
         oos.writeObject(fragments);
         oos.close();
         System.out.println("Total Runtime for " + i + " Molecules: " + (System.currentTimeMillis() - time) /1000 + " s");
-        
->>>>>>> FragmentContribution
 		
 		
 	}
@@ -73,14 +60,9 @@ public class FragmentContributionsCalc {
 	 * 
 	 * @param molecule A Molecule to be fragmented
 	 * @return The generated fragments
-<<<<<<< HEAD
-	 */
-	public ArrayList<ECFFragment> fragmentMolecule(IAtomContainer molecule){
-=======
 	 * @throws CDKException 
 	 */
 	public static ArrayList<ECFFragment> fragmentMolecule(IAtomContainer molecule) throws CDKException{
->>>>>>> FragmentContribution
 		fragmenter.generateFragments(molecule);
 		return fragmenter.getFragmentsAsSMILES();
 	}
@@ -89,25 +71,7 @@ public class FragmentContributionsCalc {
 	 * Update the List of fragmentdata with the values in the parameter
 	 * @param fragments - An ArrayList of ECFfragments to be inserted in the list of ECFfragments
 	 */
-<<<<<<< HEAD
-	public void updateFragmentFrequencyData(ArrayList<ECFFragment> fragments){
-		
-	}
-	
-	/**
-	 * Translate the previously calculated list of fragments and frequency into a list
-	 * of Fragments and Contributions
-	 */
-	public void calculateContributions() {
-		
-	}
-	
-	public double getStoredContributions(ArrayList<ECFFragment> fragments) {
-		return 0;
-	}
 
-	
-=======
 	public static void updateFragmentFrequencyData(ArrayList<ECFFragment> newFragments){
 		Integer i = null;
 		for (ECFFragment fragment : newFragments) {
@@ -192,7 +156,6 @@ public class FragmentContributionsCalc {
         	contributionsTotal += currentFragmentContribution != null ? currentFragmentContribution * frag.getCount() : frag.getCount() * Math.log( new Double(1)/new Double(808) );
         }
 		return contributionsTotal / fragmentCount;	}
->>>>>>> FragmentContribution
 
 	
 }

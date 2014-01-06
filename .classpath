@@ -132,10 +132,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="lib/junit-addons-1.5.jar"/>
-<<<<<<< HEAD
-=======
-	<classpathentry kind="lib" path="C:/Users/trenous/Documents/GitHub/cheminformaticstermproject/lib/jcommon-1.0.21.jar"/>
-	<classpathentry kind="lib" path="C:/Users/trenous/Documents/GitHub/cheminformaticstermproject/lib/jfreechart-1.0.17.jar"/>
->>>>>>> FragmentContribution
+	<classpathentry kind="lib" path="/Users/enriquegarcianavalon/Development/cheminformaticstermproject/lib/jcommon-1.0.21.jar"/>
+	<classpathentry kind="lib" path="/Users/enriquegarcianavalon/Development/cheminformaticstermproject/lib/jfreechart-1.0.17.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
