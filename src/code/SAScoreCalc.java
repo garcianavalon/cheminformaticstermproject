@@ -28,7 +28,11 @@ public class SAScoreCalc {
 	public double calculateScore(IAtomContainer atomContainer) {
 		return 0;
 	}
-
+	public double calcComplexityScore(double ringComplexityWeight, double stereoComplexityWeight, double sizePenaltyWeight,
+			double macroCyclePenaltyWeight) throws CDKException {
+		return ringComplexityWeight * this.calcRingComplexityScore() + stereoComplexityWeight * this.calcStereoComplexityScore() +
+				sizePenaltyWeight*this.calcSizePenalty() + macroCyclePenaltyWeight*this.calcMacroCyclePenalty();
+	}
 	public double calcRingComplexityScore() throws CDKException {
 		int nSpiroAtoms = getNumberOfSpiroAtoms();
 		int nRingBridgeAtoms = getNumberOfRingBridgeAtoms();
