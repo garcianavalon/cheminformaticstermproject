@@ -2,14 +2,11 @@ package test.SAScore;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.List;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openscience.cdk.DefaultChemObjectBuilder;
 import org.openscience.cdk.interfaces.IAtomContainer;
-import org.openscience.cdk.ringsearch.RingSearch;
 import org.openscience.cdk.smiles.SmilesParser;
 
 import code.SAScoreCalc;

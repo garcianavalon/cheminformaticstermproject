@@ -19,14 +19,33 @@ import org.openscience.cdk.stereo.Stereocenters;
 
 public class SAScoreCalc {
 
+	private ECFFragmenter fragmenter;
 	private IAtomContainer molecule;
+	private static final double RING_COMPLEXITY_WEIGHT = 1;
+	private static final double STEREO_COMPLEXITY_WEIGHT = 1;
+	private static final double MACROCYCLE_WEIGHT = 1;
+	private static final double SIZEPENALTY_WEIGHT = 1;
 
 	public SAScoreCalc(IAtomContainer molecule) {
 		this.molecule = molecule;
+		this.fragmenter = new ECFFragmenter();
 	}
 
-	public double calculateScore(IAtomContainer atomContainer) {
-		return 0;
+	public double calculateScore(IAtomContainer atomContainer) throws CDKException {
+		this.molecule = atomContainer;
+		this.fragmenter.generateFragments(this.molecule);
+		double fragmentContributions = FragmentContributionsCalc.getStoredContributions(this.fragmenter.getFragmentsAsSMILES());
+		double complexityPenalty = this.getComplexityPenalty();
+		System.out.println("Complexity Penalty: " + complexityPenalty + "FragmentContributions: " + fragmentContributions);
+		return fragmentContributions - complexityPenalty;
+		
+	}
+	
+	private double getComplexityPenalty() throws CDKException {
+		return this.calcMacroCyclePenalty() * MACROCYCLE_WEIGHT
+			  + this.calcRingComplexityScore() * RING_COMPLEXITY_WEIGHT
+			  + this.calcStereoComplexityScore() * STEREO_COMPLEXITY_WEIGHT
+			  + this.calcSizePenalty()            * SIZEPENALTY_WEIGHT;
 	}
 
 	public double calcRingComplexityScore() throws CDKException {

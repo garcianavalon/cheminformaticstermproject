@@ -7,11 +7,16 @@ import java.util.HashMap;
 import org.openscience.cdk.Atom;
 import org.openscience.cdk.AtomContainer;
 import org.openscience.cdk.Bond;
+import org.openscience.cdk.PseudoAtom;
+import org.openscience.cdk.aromaticity.Aromaticity;
+import org.openscience.cdk.aromaticity.ElectronDonation;
 import org.openscience.cdk.exception.CDKException;
+import org.openscience.cdk.graph.Cycles;
 import org.openscience.cdk.interfaces.IAtom;
 import org.openscience.cdk.interfaces.IAtomContainer;
 import org.openscience.cdk.interfaces.IBond;
 import org.openscience.cdk.smiles.SmilesGenerator;
+import org.openscience.cdk.tools.manipulator.AtomContainerManipulator;
 
 /**
  * This class provides methods to generate and retrieve The ECF4-Type fragments
@@ -40,12 +45,19 @@ public class ECFFragmenter {
 	 * 
 	 * @param atomContainer
 	 *            The IAtomContainer to be fragmented
+	 * @throws CDKException 
 	 */
-	public void generateFragments(IAtomContainer atomContainer) {
+	public void generateFragments(IAtomContainer atomContainer) throws CDKException {
 		this.atomContainer = atomContainer;
 		this.fragmentList = new ArrayList<IAtomContainer>();
+		// Set aromaticity flags so aromatic smiles can be built
+		// test: set all implicit hydrogen count to 0
+		for (IAtom a : atomContainer.atoms())
+			a.setImplicitHydrogenCount(0);
 		for (IAtom a : atomContainer.atoms()) { // for each atom, generate
 												// fragments
+			if (a.getAtomicNumber() == 1)
+				continue;
 			for (int i = 0; i < 3; i++) {// iterate from one bond to three bond
 											// size
 				IAtomContainer fragment = new AtomContainer();
@@ -70,6 +82,8 @@ public class ECFFragmenter {
 		for (IAtom lastLayerAtom : lastLayerAtoms) {
 			for (IAtom nextLayerAtom : atomContainer
 					.getConnectedAtomsList(lastLayerAtom)) {
+				if (nextLayerAtom.getAtomicNumber() == 1)
+					continue;
 				if (!lastLayerAtoms.contains(nextLayerAtom)
 						&& !nextLayerAtoms.contains(nextLayerAtom)
 						&& starAtoms.get(nextLayerAtom) == null) {
@@ -78,7 +92,7 @@ public class ECFFragmenter {
 						nextLayerBonds.add(atomContainer.getBond(lastLayerAtom,
 								nextLayerAtom));
 					} else {
-						IAtom starAtom = new Atom("A");
+						IAtom starAtom = new PseudoAtom("A");
 						starAtom.setImplicitHydrogenCount(0);
 						IBond starBond = new Bond(lastLayerAtom, starAtom);
 						nextLayerAtoms.add(starAtom);
@@ -133,11 +147,14 @@ public class ECFFragmenter {
 	 * Turns the retreived fragments into a cannical SMILES representation
 	 */
 	private void generateCanonicalSmiles() {
-		SmilesGenerator sg = new SmilesGenerator();
-		//sg.setUseAromaticityFlag(true);
+		SmilesGenerator sg = SmilesGenerator.unique().aromatic();
 		this.fragmentSMILES = new ArrayList<String>();
+		Aromaticity aromaticity = new Aromaticity(ElectronDonation.daylight(),
+				Cycles.cdkAromaticSet());
 		for (IAtomContainer fragment : this.fragmentList)
 			try {
+				AtomContainerManipulator.percieveAtomTypesAndConfigureAtoms(fragment);
+			     aromaticity.apply(fragment);
 				fragmentSMILES.add(sg.create(fragment));
 			} catch (CDKException e) {
 				System.err.println("CDKException occured for fragment:\n" + fragment);

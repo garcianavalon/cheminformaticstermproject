@@ -1,8 +1,6 @@
 
 package code;
 
-import java.util.Comparator;
-
 public class ECFFragment implements Comparable<ECFFragment>{
 	private Double score;
 	private int count;
@@ -46,8 +44,8 @@ public class ECFFragment implements Comparable<ECFFragment>{
 
 	@Override
 	public int compareTo(ECFFragment otherFragment) {
-		return this.count < otherFragment.getCount() ? -1 : this.count > otherFragment
-				.getCount() ? 1 : this.key.compareTo(otherFragment.getKey());
+		return this.count > otherFragment.getCount() ? -1 : this.count < otherFragment
+				.getCount() ? 1 : otherFragment.getKey().compareTo(this.key);
 	}
 
 	
